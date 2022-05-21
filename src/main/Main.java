@@ -23,5 +23,19 @@ public class Main {
         Controllers.calculateTotal(Controllers.invoices);
         Controllers.loadTable(view, Controllers.invoices);
         fileOperations.getMaxNumberOfExistedInvoices(Controllers.numberOfCurrentInvoices, Controllers.invoices);
+
+        for (int i = 0; i < Controllers.invoices.size(); i++) {
+            System.out.println("Invoice" + Controllers.invoices.get(i).getInoviceNumber() + "Num");
+            System.out.println("{");
+            System.out.println(Controllers.invoices.get(i).getInoviceDate() + ", " + Controllers.invoices.get(i).getInoviceCustomerName());
+            for (int j = 0; j < Controllers.invoices.get(i).getInvoicerow().size(); j++) {
+                System.out.println(Controllers.invoices.get(i).getInvoicerow().get(j).getItemName() + ", "
+                        + Controllers.invoices.get(i).getInvoicerow().get(j).getItemPrice() + ", "
+                        + Controllers.invoices.get(i).getInvoicerow().get(j).getItemCount());
+            }
+            System.out.println("}");
+        }
+
     }
+
 }
